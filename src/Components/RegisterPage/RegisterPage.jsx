@@ -4,19 +4,16 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import { FaAsterisk } from "react-icons/fa";
 import reverrLogo from "./logo.png";
 import { register, db } from "../../firebase";
-import { useRef } from "react";
 
 export default function LoginPage(props) {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [mobileNo, setMobileNo] = useState("");
 
-  async function handleRegister(e) {
+  function handleRegister(e) {
     e.preventDefault();
+    register(email, password);
     db.collection("web-register")
       .add({
         fullName: fullName,
@@ -28,7 +25,7 @@ export default function LoginPage(props) {
         alert("Registered Successfully");
       })
       .catch((err) => {
-        alert(err);
+        alert(err.message);
       });
     setFullName("");
     setEmail("");
@@ -37,18 +34,18 @@ export default function LoginPage(props) {
   }
 
   return (
-    <div className="container-fluid ">
-      <Row className=" pt-5">
-        <Col className="leftSection pt-5">
-          <img src={reverrLogo} alt="reverr-logo"></img>
+    <div className="register-container-fluid">
+      <Row className="register-row g-0">
+        <Col className="leftSection"  sm={12} md={6} >
+          <img  src={reverrLogo} alt="reverr-logo"></img>
         </Col>
-        <Col className="rightSection">
+        <Col className="register-rightSection"  sm={12} md={6}>
           <div className="wlcm-msg">
             <h1 className="main-msg">Welcome to Reverr</h1>
             <p className="msg mb-4">Enter your basic information below</p>
           </div>
-          <Form className="form-container">
-            <Form.Group className="mb-3 input">
+          <Form className="register-form-container pt-5">
+            <Form.Group className="mb-3 register-input">
               <Form.Label>
                 Full Name
                 <sup>
@@ -61,9 +58,8 @@ export default function LoginPage(props) {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
-              
             </Form.Group>
-            <Form.Group className="mb-3 input">
+            <Form.Group className="mb-3 register-input">
               <Form.Label>
                 Email
                 <sup>
@@ -77,7 +73,7 @@ export default function LoginPage(props) {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>{" "}
-            <Form.Group className="mb-3 input">
+            <Form.Group className="mb-3 register-input">
               <Form.Label>
                 Password
                 <sup>
@@ -91,7 +87,7 @@ export default function LoginPage(props) {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>{" "}
-            <Form.Group className="mb-3 input">
+            <Form.Group className="mb-3 register-input">
               <Form.Label>
                 Mobile Number
                 <sup>
@@ -105,13 +101,13 @@ export default function LoginPage(props) {
                 onChange={(e) => setMobileNo(e.target.value)}
               />
             </Form.Group>
-            <div className="text-center input">
+            <div className="text-center register-input">
               <Button type="submit" onClick={handleRegister}>
                 Create Account
               </Button>
             </div>
           </Form>
-          <div className="login text-center mt-3 input">
+          <div className="login text-center mt-3 register-input">
             <p>
               Already have an account? <a href="!#"> Login Now!</a>
             </p>

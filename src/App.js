@@ -9,12 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return ( <div className = "App" >
+     {/* <ProfileSel /> */}
         <RegisterPage />
-        {/* <LoginPage /> */}
-        {/* <ProfileSel /> */}
-        {/* <ForgotPassword /> */}
-        {/* <ConfirmationPage /> */}
-        {/* <ResetPassword /> */}
+        {/* <LoginPage />  
+        <ForgotPassword />
+        <ConfirmationPage />
+        <ResetPassword /> */}
         </div>
     );
 }

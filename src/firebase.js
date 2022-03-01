@@ -1,11 +1,8 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore/lite";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 // Initialize Firebase
 var firebaseApp = firebase.initializeApp({
@@ -20,8 +17,25 @@ var firebaseApp = firebase.initializeApp({
 
 var db = firebaseApp.firestore();
 const auth = getAuth();
-export function register(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
-}
+export async function register(email, password) {
+    try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        alert("User created successfully!");
+        console.log('user created:', cred.user);
+    } catch (err) {
+        console.log(err.message);
+        alert(err.message);
+    }
+};
 
+export async function login(email, password) {
+    try {
+        const cred = await signInWithEmailAndPassword(auth, email, password)
+        console.log('user logged in:', cred.user);
+        alert("User logged in successfully!");
+    } catch (err) {
+        alert(err.message);
+        console.log(err.message);
+    }
+}
 export { db };

@@ -27,7 +27,7 @@ export default function ForgotPassword() {
           
            
             <div className="input">
-            <Button type="submit">Send Password</Button>
+            <Button type="submit">Send OTP</Button>
             </div>
           </Form>
           <div className="login  mt-3 input"> <a href="!#">I remember the password</a></div>
