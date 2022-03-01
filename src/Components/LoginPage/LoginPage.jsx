@@ -14,22 +14,22 @@ export default function LoginPage() {
     setPassword("");
   }
   return (
-    <div className="container-fluid ">
-      <Row className=" pt-5">
-        <Col className="leftSection pt-5">
+    <div className="login-container-fluid ">
+      <Row className="login-row g-0">
+        <Col className="login-leftSection" sm={12} md={6}>
           <img src={reverrLogo} alt="reverr-logo"></img>
         </Col>
-        <Col className="rightSection p-5">
-          <div className="wlcm-msg">
-            <h1 className="main-msg">Welcome to Reverr</h1>
-            <p className="msg mb-4">Welcome back! Please login to continue</p>
+        <Col className="login-rightSection" sm={12} md={6}>
+          <div className="login-wlcm-msg">
+            <h1 className="login-main-msg">Welcome to Reverr</h1>
+            <p className="login-msg mb-4">Welcome back! Please login to continue.</p>
           </div>
-          <Form className="form-container">
-            <Form.Group className="mb-3 input">
+          <Form className="login-form-container">
+            <Form.Group className="mb-3 login-input">
               <Form.Label>
                 Email Address/Phone no.
                 <sup>
-                  <FaAsterisk className="required-icon" />
+                  <FaAsterisk className="login-required-icon" />
                 </sup>
               </Form.Label>
               <Form.Control
@@ -39,11 +39,11 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
-            <Form.Group className="mb-3 input">
+            <Form.Group className="mb-3 login-input">
               <Form.Label>
                 Password
                 <sup>
-                  <FaAsterisk className="required-icon" />
+                  <FaAsterisk className="login-required-icon" />
                 </sup>
               </Form.Label>
               <Form.Control
@@ -53,13 +53,13 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>{" "}
-            <div className="text-center input">
-              <Button type="submit" onClick={handleLogin}>
+            <div className="text-center login-input">
+              <Button type="submit" className="btn-lg" onClick={handleLogin}>
                 Login
               </Button>
             </div>
           </Form>
-          <div className="login text-center mt-3 input">
+          <div className="login text-center mt-3 login-input">
             <p>
               Don't have an account? <a href="!#">Sign Up!</a>
             </p>

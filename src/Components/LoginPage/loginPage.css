@@ -1,26 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-.container-fluid {
+.login-container-fluid {
     background-color: #232323;
-    height: 100vh !important;
     color: white;
     font-family: 'poppins';
 }
 
-.form-container {
+.login-form-container {
     padding-top: 5.7rem !important;
 }
 
-.main-msg {
+.login-main-msg {
     font-weight: 600;
 }
 
-.required-icon {
+.login-required-icon {
     color: red;
     font-size: 10px;
     margin-left: 4px;
 }
 
-.input {
+.login-input {
     width: 600px;
 }
 
@@ -45,4 +44,34 @@
 a {
     color: white!important;
     text-decoration: none !important;
+}
+
+.login-row {
+    padding-top: 3rem;
+}
+
+.login-rightSection {
+    padding: 0 3rem!important;
+}
+
+
+/* media query for mobile view */
+
+@media only screen and (max-width: 600px) {
+    .login-leftSection img {
+        height: 350px;
+        width: 400px;
+    }
+    .login-input {
+        width: 250px;
+    }
+    .login-row {
+        padding-top: 0px !important;
+    }
+    .login-form-container {
+        padding-top: 0 !important;
+    }
+    .login-rightSection {
+        padding: 0 3.4rem !important;
+    }
 }
