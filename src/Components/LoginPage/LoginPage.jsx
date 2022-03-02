@@ -8,10 +8,11 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleLogin(e) {
-    e.preventDefault();
+    
     login(email, password);
     setEmail("");
     setPassword("");
+    e.preventDefault();
   }
   return (
     <div className="login-container-fluid ">

@@ -1,74 +1,76 @@
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-    .login-container-fluid {
-        background-color: #232323;
-        color: white;
-        font-family: 'poppins';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+.login-container-fluid {
+    background-color: #232323;
+    color: white;
+    font-family: 'poppins';
+}
+
+.login-form-container {
+    padding-top: 5.7rem !important;
+}
+
+.login-main-msg {
+    font-weight: 600;
+}
+
+.login-required-icon {
+    color: red;
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+.login-input {
+    width: 600px;
+}
+
+.form-control {
+    background-color: #323544 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.btn-primary {
+    margin-top: 15px;
+    color: #fff;
+    background-color: #323544 !important;
+    border: none!important;
+}
+
+.login {
+    color: #9C9898;
+    font-size: 12px;
+}
+
+a {
+    color: white!important;
+    text-decoration: none !important;
+}
+
+.login-row {
+    padding-top: 3rem;
+}
+
+.login-rightSection {
+    padding: 0 3rem;
+}
+
+
+/* media query for mobile view */
+
+@media only screen and (max-width: 600px) {
+    .login-leftSection img {
+        width: 300px;
+        height: 250px;
     }
-    
-    .login-form-container {
-        padding-top: 5.7rem !important;
-    }
-    
-    .login-main-msg {
-        font-weight: 600;
-    }
-    
-    .login-required-icon {
-        color: red;
-        font-size: 10px;
-        margin-left: 4px;
-    }
-    
     .login-input {
-        width: 600px;
+        width: 250px;
     }
-    
-    .form-control {
-        background-color: #323544 !important;
-        border: none !important;
-        color: white !important;
-    }
-    
-    .btn-primary {
-        margin-top: 15px;
-        color: #fff;
-        background-color: #323544 !important;
-        border: none!important;
-    }
-    
-    .login {
-        color: #9C9898;
-        font-size: 12px;
-    }
-    
-    a {
-        color: white!important;
-        text-decoration: none !important;
-    }
-    
+    .login-row,
+    .login-form-container,
     .login-row {
-        padding-top: 3rem;
+        padding-top: 0px !important;
     }
-    
     .login-rightSection {
-        padding: 0 3rem;
+        padding: 0 3rem !important;
     }
-    /* media query for mobile view */
-    
-    @media only screen and (max-width: 600px) {
-        .login-leftSection img {
-            width: 300px;
-            height: 250px;
-        }
-        .login-input {
-            width: 250px;
-        }
-        .login-row,
-        .login-form-container,
-        .login-row {
-            padding-top: 0px !important;
-        }
-        .login-rightSection {
-            padding: 0 3rem !important;
-        }
-    }
+}
