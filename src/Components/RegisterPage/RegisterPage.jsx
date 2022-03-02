@@ -6,14 +6,9 @@ import reverrLogo from "./logo.png";
 
 import { getFirestore } from "firebase/firestore";
 import emailjs from "@emailjs/browser";
-import { useNavigate } from "react-router-dom";
 import EmailVerify from "./emailVerify";
 
 export default function LoginPage(props) {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [fullName, setFullName] = useState("");
-  // const [mobileNo, setMobileNo] = useState("");
   var [isSecure1, setisSecure1] = useState(true);
   var [isSecure2, setisSecure2] = useState(true);
   const [name, setname] = useState("");
@@ -22,11 +17,10 @@ export default function LoginPage(props) {
   const [emailerror, setemailerror] = useState(false);
   const [password, setpassword] = useState("");
   const [passerror, setpasserror] = useState(false);
-  const [ConfermPass, setConfermPass] = useState("");
-  const [confermpasserror, setconfermpasserror] = useState(false);
+  const [confirmPass, setconfirmPass] = useState("");
+  const [confirmpasserror, setconfirmpasserror] = useState(false);
   const [mobile, setmobile] = useState("");
   const [moberror, setmoberror] = useState(false);
-  // let navigate = useNavigate();
 
   const UserType = "Mentor";
   const data = {
@@ -39,7 +33,6 @@ export default function LoginPage(props) {
 
   //console.log(data)
   const IsEmpty = async (e) => {
-  
     if (name === "") {
       setnameerror(true);
     } else {
@@ -49,13 +42,13 @@ export default function LoginPage(props) {
         if (password === "") {
           setpasserror(true);
         } else {
-          if (ConfermPass === "") {
-            setconfermpasserror(true);
+          if (confirmPass === "") {
+            setconfirmpasserror(true);
           } else {
             if (mobile === "") {
               setmoberror(true);
             } else {
-              if (password !== ConfermPass) {
+              if (password !== confirmPass) {
                 alert("Password not matched!!");
               } else {
                 const savedUser = await getFirestore()
@@ -63,7 +56,7 @@ export default function LoginPage(props) {
                   .doc(email)
                   .get();
                 if (savedUser._data !== undefined) {
-                  alert("user already exists with that email");
+                  alert("User already exists with that email");
                 } else {
                   var OTP = EmailOtp();
                   alert("Please check your inbox");
@@ -74,17 +67,13 @@ export default function LoginPage(props) {
                   //   Name: name,
                   //   Mobile: mobile,
                   // });
-                  EmailVerify({
-                    OTP: OTP,
-                    Email: email,
-                    Password: password,
-                    Name: name,
-                    Mobile: mobile,
-                  });
+                  <EmailVerify
+                    data={data}
+                  />;
                   setname("");
                   setemail("");
                   setpassword("");
-                  setConfermPass("");
+                  setconfirmPass("");
                   setmobile("");
                 }
               }
@@ -145,8 +134,7 @@ export default function LoginPage(props) {
                 value={name}
                 error={nameerror}
                 onChange={(n) => {
-               
-                  setname(n);
+                  setname(n.target.value);
                   if (n !== "") {
                     setnameerror(false);
                   }
@@ -166,7 +154,7 @@ export default function LoginPage(props) {
                 value={email}
                 error={emailerror}
                 onChange={(e) => {
-                  setemail(e);
+                  setemail(e.target.value);
                   if (e !== "") {
                     setemailerror(false);
                   }
@@ -186,7 +174,7 @@ export default function LoginPage(props) {
                 value={password}
                 error={passerror}
                 onChange={(p1) => {
-                  setpassword(p1);
+                  setpassword(p1.target.value);
                   if (p1 !== "") {
                     setpasserror(false);
                   }
@@ -197,12 +185,12 @@ export default function LoginPage(props) {
               <Form.Control
                 type="password"
                 placeholder="Confirm Password"
-                value={ConfermPass}
-                error={confermpasserror}
+                value={confirmPass}
+                error={confirmpasserror}
                 onChange={(p2) => {
-                  setConfermPass(p2);
+                  setconfirmPass(p2.target.value);
                   if (p2 !== "") {
-                    setconfermpasserror(false);
+                    setconfirmpasserror(false);
                   }
                 }}
               />
@@ -220,7 +208,7 @@ export default function LoginPage(props) {
                 value={mobile}
                 error={moberror}
                 onChange={(m) => {
-                  setmobile(m);
+                  setmobile(m.target.value);
                   if (m !== "") {
                     setmoberror(false);
                   }

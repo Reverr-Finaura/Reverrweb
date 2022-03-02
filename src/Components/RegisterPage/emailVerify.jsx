@@ -143,7 +143,7 @@ export default function EmailVerify(props) {
             </Form.Group>
 
             <div className="input">
-              <Button type="submit" onClick={(e)=>submitHandler(e)}>
+              <Button type="submit" onClick={submitHandler()}>
                 Confirm
               </Button>
             </div>
