@@ -1,0 +1,20 @@
+a.nav-link {
+    margin-right: 0100px;
+}
+
+.btn-primary {
+    background-color: #0077B7 !important;
+    border-radius: 10px;
+}
+
+.navbar-toggler-icon {
+    background-image: url(https://img.icons8.com/office/40/000000/menu--v3.png) !important
+}
+
+.navbar-toggler {
+    color: white !important;
+}
+
+.navbar {
+    border-bottom: 1px solid #636262;
+}
